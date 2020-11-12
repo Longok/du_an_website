@@ -77,11 +77,11 @@
                                     @foreach ($getNews as $news)
                                     <article class="article">
                                         <div class="article-media-container">
-                                            <a href="{{ route('post', $news->slug) }}"><img src="storage/{$news->post_image}" alt="post1"></a>
+                                            <a href="{{ route('post', $news->slug) }}"><img src="storage/image/{{$news->post_image}}" alt="post1"></a>
                                         </div>
                                         <div class="article-meta-box"><span class="article-icon article-date-icon"></span> <span class="meta-box-text">{{ $news->date }}</span></div>
-                                        <h4><a href="single.html">{{ $news->title }}</a></h4>
-                                        <p>{{ $news->description }}</p><a href="single.html" class="readmore" role="button">@lang('language.load_more') </a>
+                                        <h4><a href="{{ route('post', $news->slug) }}">{{ $news->title }}</a></h4>
+                                        <p>{{ $news->description }}</p><a href="{{ route('post', $news->slug) }}" class="readmore" role="button">@lang('language.load_more') </a>
                                     </article>
                                     @endforeach
                                 </div>
@@ -94,7 +94,8 @@
                                 @foreach ($comments as $comment)
                                 <li>
                                     <div class="comment">
-                                        <div class="comment-content">
+                                		<figure><img style="margin-right: 0px " src="frontend/images/boy2.png" width="42" alt="boy" class="wow rotateIn pull-left animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: rotateIn;"></figure>
+                                        <div class="comment-content " style="margin-left: 20px;">
                                             <h5><a href="#">{{ $comment->user_name }}</a></h5>
                                             <p>{{ $comment->content }}</p><span class="comment-meta"><span>{{ $comment->created_at }}</span>
                                         </div>
@@ -109,7 +110,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <input name="user_name" ng-model="comment.user_name" type="text" class="form-control input-lg" ng-required="true" placeholder="Enter your nickname *">
-                                            <span ng-show="commentPost.user_name.$error.required">Vui lòn nhập tên của bạn</span>
+                                            <span ng-show="commentPost.user_name.$error.required">Vui lòng nhập tên của bạn</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
