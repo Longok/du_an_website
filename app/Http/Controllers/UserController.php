@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $result = array('email' => $request->email, 'password' => $request->password);
         if (Auth::attempt($result)) {
-            return redirect()->route('home', compact('meta_desc', 'meta_keywords', 'meta_title', 'url_canonical'));
+            return redirect()->route('home');
         }
 
         return redirect()->back();
